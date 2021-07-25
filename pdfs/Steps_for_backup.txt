@@ -1,0 +1,13 @@
+ Steps for Backup
+
+Do the following demo in DC (existind old machines).first turn it "OFF"
+Insert a hard disk of 15 GB. Create dynamic simple volume of 15 GB
+
+1) SCSI controller-->click add(select the location{do not use the one in use}or else u have to re-install everything)---->give name of hard disk-->next--->storage-->finish
+
+2) Go to run-->diskmgmt.msc--->bring the disk online-->initialise-->convert to dynamic disk--->create simple volume-->next-->done
+
+
+3) Go to add roles and features--->next-->next-->next-->features-->select "Windows server Backup"-->next-->install
+
+4) Go to tools-->select-->"windows server backup"--->Click on "local backup"---->(If asked Backup for these many days then schedule or else backup once)--->backup once--->"custom"--->"add items"--->select which backup you want to take (ex:-system state)-->next--->(Destination type of backup)"local"--->next-->(backup destination)Volume E--->next---{give the snip of this wizard in process}----

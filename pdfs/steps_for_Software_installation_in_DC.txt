@@ -1,0 +1,23 @@
+All the steps to be executed inside DC
+
+1)Inserting media
+on the top of server manager----->Go to media ------>DVD drive--->insert disk----> go to the saved (disk image ) server 2008 R2 and select it
+
+2)Creation of Folder and sharing the folder
+go to C drive of Domain Controller create a folder as "software ----> share it with "Everyone"---> with "full permission"(read and write both)
+
+3)Click on "This PC"-->in the search on top right type "*.msi"--->you will get a "netfx" file copy it--->paste it in C drive in the folder "software" we just created.
+
+4)go to run-->gpmc.msc--->right click on HR-->"Create a gpo and link it here"(since we want for HR only)----->provide name "Software"---->Expand the 'HR' software folder must be present inside it
+-->right click on "Software" and click "edit"--->go to "User configuration"-->"policies"--->"Software settings"---->"Software Installation" right click on it select "new"-->"package"--->go to "This Pc" give the shared path(\\10...) of the folder we created (Software) in the address bar and select "netfx"---->select "published" and close the console
+
+5)on the left side pane "Software" right click on it and select "Enforced"--->go to run--->gpupdate.msc(click on settings and take a snip)
+
+6)To check whether it is showing in Client machine:
+
+ go to the client machine and login as one of the HR user and check it--->other user..automate\HR1
+
+click on desktop --->control panel---->"Programs" select "get programs" and you can see the .Net framework is present there
+
+in Client machine while signing in if error occurs on other users sign in -->sign out--->sign in as Admin
+---->Add them into remote login desktop group--->lusrmgr.msc--->Go to groups--->>Remote desktop group--->add members of Hr group--->Go to Remote management group -->add

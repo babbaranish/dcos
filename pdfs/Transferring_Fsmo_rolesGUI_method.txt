@@ -1,0 +1,24 @@
+TRANSFERRING FSMO ROLES THROUGH GUI======
+
+1)Go to run----->dsa.msc
+2)right click automate.org select Change domain controller--->select the DC you want to transfer to--->Select ADC
+3)right click again on "automate.org---->operations master---->select the role you want to transfer---->click on "change"--->"Yes"
+
+If you want to change PDC---->go to PDC--->change-->"yes"
+
+for reverting or undo the changes made go to Change controller and change it
+
+
+
+For changing other roles(Transferring Naming master)=====
+
+1)Go to Server manager---->Tools--->Active Directory Domain And Trusts--->Right click on automate.org---->"change Active directory domain"--->again right click-->Select "Operations masters"--->change
+
+For Schema master transfer=====
+
+1)open cmd--->regsvr32 schmmgmt.dll
+2)open Microsoft management console type-->(in cmd)mmc command for adding schhema
+3)click on file-->add/remove snap in---->Active Directory Schema--->add--->right click on "Active Directory Schema"--->change active directory --->ok--->right click "operations master"---->change
+
+To check whether roles transfer or not ---
+Go to powershell write command----->netdom query fsmo

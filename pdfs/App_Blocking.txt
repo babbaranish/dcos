@@ -1,0 +1,4 @@
+Block Applications using Group policy
+
+1)go to "Group policy management console"(gpmc.msc)---->(For every users it will be blocked)right click "Automate.org"--->Create Gpo and link it here--->give it a name "Block Calculator"----right click "Block Calculator"(present in left side pane) and click "edit"---->select "User Configuration"--->"Policies"--->"Administrative template"--->select "System"--->"Do not run specified windows application"(double click)
+--->click "Enabled"---->click "show"---->enter the value (like Calc.exe)give the exe file of whatever application you want to block--->apply-->close the console--->right click Block Calculator(left side pane) "enforced"--->update the policy (gpupdate/force)---->now try to open Calculator it will show "blocked"---//but from Cmd it will be accessible//

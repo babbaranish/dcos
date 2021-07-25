@@ -1,0 +1,10 @@
+Folder Redirection::::
+
+1)go to Domain Controller--->C drive--->Create a folder "Share"-->share it with "Everyone"--->"Full Permission"(read and write)
+2)go to "Group Policy Management Console"(gpmc.msc)--->(All the Hr users my documents folder should be redirected to central)---->right click on Hr ---> select "Create a GPO and link it here"--->Give it a name "Folder redirection" right click on it(present in left side pane) and click "Edit"-->Select "User Configuration"-->Select "Policies"--->Select "Windows settings"--->Select "folder Redirection"(double click)-->select documents---->right click and select properties-->select Settings on the top -->"Basic"---> give the root path(\\10.0.0.30\share-->apply---"warning message" --> click yes
+right click on Folder Redirection-->enforced--->update the policy(gpupdate.msc)
+
+3)Go to Client machine--->login as Hr2--->Update policy(gpupdate.msc)--->restart machine(otherwise won't update), if it doesn't asks you restart manually
+Go to client login as HR2 again--->go to "Documents"--->Save some content inside it(like create a folder or some text files)
+
+Now if you go to Dc--->C drive--->Share--->"HR2" folder will be present there and the documents Folder --->"Acess Denied"(Only HR2 can access that folder"Documents")

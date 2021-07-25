@@ -1,0 +1,3 @@
+Create a private switch "SCCM"--->go to import Virtual machine-->next--->browse "C" drive folder in which we copied--->import one machine at a time(Global first)--->next---->Register 1st option-->finish
+
+Similarly import the next 2 machines if error comes select the switch "SCCM"

@@ -1,0 +1,49 @@
+========================================================STEPS FOR SITE CREATION=======================================================================================================
+
+Change and configure the IPs (DISCORD--study server---notes and resources)
+
+(Dc and ADC were on same switches so now we have to keep DC on Switch1 and ADC on switch2 and new machine that is Router {Router's first Network adapter should be on Switch1 and Router's Second Network adapter should be on switch2} Both the switches to be kept "Private")
+
+1)Turn off the new machine(Router)---->settings-->Network Adapter-->add(once only)-->connect to the other network adapter to different switch
+
+2)Go to ADC and change the switch--->Right click on ADC machine in Hyper-v--->settings-->Network adapter on left side pane-->click and change the switch
+
+
+[Note: DC and first adapter should be connected to switch1 and adc and second adapter should be connected to switch2]
+
+3)Switch on the Router machine and log in --->turn off the firewall-->ncpa.cpl and there will be 2 ethernets--->go to Ethernet1 and assign the ip(10.0.0.10) no need to give preferred DNS---->Go to Ethernet2---assign the Ip(192.168.1.10)no need to give preferred DNS
+
+4)go to Router--->add roles and features-->(Two new IPs should be present there)---->add role "Remote Access"--->next-->no features should be added--->next-->Under Role Service select "Routing"--->add feature-->next-->next-->install
+
+5)Go to tools--->"routing and remote access"---->right click on machine name(WIN--)--->select "configure and enable routing"--->next-->select "Custom configuration"--->"Lan Routing"--->next-->finish--->start service
+
+go to powershell(DC) and ping ADC(192.168.1.1) and go to powershell(ADC) and Ping DC(10.0.0.30)
+
+
+======================================================To configure sites and trusts======================================================================================================
+
+6)Go to Dc--->tools-->Active directory sites and services--->(Default site will be already there it will contain all the machines, we can rename it(default one))---->to add/create new site--->right click on "Sites"---->"new site"-->give it a name--->select a link(default)-->add-->ok
+
+=====================================================For Moving ADC to Pune===========================================================================================================
+Right click on ADC --->move--->pune-->ok
+
+
+===================================================For Creation of new link of our own:===============================================================================================
+for Ip link
+Expand sites-->Inter-site transport-->right click IP--->New link-->give it a name(MysoreToPune)
+By default replication will happen every 180 minutes if you want you can chnage by giving the value-->apply-->ok
+
+
+For other changes right click on ADC/DC--->Properties
+
+
+
+=====================================================================For Bridge Head servers======================================================================================
+rightclick Dc-->properties--->general--->select the link(ex:Ip)--->add transport it will become the bridge head server
+
+
+================================================================For adding Subnets=================================================================================================
+right click Subnets--->New-->add prefix(10.0.0/8)--select Mysore-->ok
+
+right click Subnets--->New-->add prefix(192.168.1.0/24)--select Pune-->ok
+

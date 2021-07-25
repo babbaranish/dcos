@@ -1,0 +1,23 @@
+Steps for RODC
+..firewalls off
+..Give hostname as RODC
+..first ping both DC and Rodc
+
+1)for connecting the machine to domain--->go to run "sysdm.cpl"--->change--->select "domain"--->give the domain name(automate.org)--->give admin password--->restart the system(login as automate\administrator)
+
+2)Click add roles and features--->add roles--->add ADDS-->next--->next--->install
+
+3)Click on "promote this server to domain controller"--->click 1st option("Add to existing domain")--->if error occurs click -->change(current user as "automate\Administrator")---->check "Rodc" 3rd option and provide the password
+-->click next--->next-->next-->next-->install--->system restart
+
+4)login into RODC with automate\Administrator----->go to run--->"dsa.msc"----->go to DC and observe
+
+5)right click on Active directory Users and computers-->select "change Domain controller"---->"This domain controller or AD LDS instance" and select RODC(take the snip of this wizard important for exam)
+
+
+For password Caching:=====
+
+go to main DC--->Tools-->"Active Directory Users and Computers"--->Domain controllers---->right click on RODC---properties---"password Replication policy"--->add-->1st option "allow"--->click ok-->add the users(take the snip of Rodc properties)
+
+
+Note:--All the data will be replicated and passwords will be cached(only selected passwords will be cached)

@@ -1,0 +1,9 @@
+Steps for creating Home folder
+
+1)Go to Dc--->Go to C drive--->create a folder--->share with "everyone"---->give full permission (take the snip of shared)
+
+
+2)Go to Hr --->"Properties"--->Select "profile" option on the top--->select "home folder"--->select "connect"-->select any (ex ":H") give the shared path in "To"---\\10.0.0.30\home\%username%--->"apply"
+
+To check 
+Go to client machine and login as Hr2--->Restart the machine (also refresh the DC if it is not displayed) 
